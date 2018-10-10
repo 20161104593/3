@@ -12,6 +12,11 @@ class ViewController: UIViewController {
 
     var number = 0
     var re = 0
+    var result = ""
+    var add = 0
+    var subtract = 0
+    var multiply = 0
+    var divide = 0
     @IBAction func zero(_ sender: Any) {
         if re == 1{
             display.text = "0"
@@ -105,39 +110,153 @@ class ViewController: UIViewController {
     
     
     @IBAction func add(_ sender: Any) {
-        if display.text == ""{
-            display.text = "0"
-        }else{
-            
+        if add == 1{
+            let a = Double(result)!
+            let b = Double(display.text!)!
+            let c = a + b
+            result = String(c)
+            display.text = ""
+            number = 1
+            re = 0
             
         }
+        else{
+            if display.text == ""{
+                display.text = ""
+            }else{
+                add = 1
+               let x = Double(display.text!)!
+                result = String(x)
+                display.text = ""
+                number = 1
+                re = 0
+                }
+            }
         
     }
     
     @IBAction func subtract(_ sender: Any) {
+        if subtract == 1{
+            let a = Double(result)!
+            let b = Double(display.text!)!
+            let c = a - b
+            result = String(c)
+            display.text = ""
+            number = 2
+            re = 0
+            
+        }
+        else{
+            if display.text == ""{
+                display.text = ""
+            }else{
+                subtract = 1
+                let x = Double(display.text!)!
+                result = String(x)
+                display.text = ""
+                number = 2
+                re = 0
+            }
+        }
     }
     
     
     @IBAction func multiply(_ sender: Any) {
+        if multiply == 1{
+            let a = Double(result)!
+            let b = Double(display.text!)!
+            let c = a * b
+            result = String(c)
+            display.text = ""
+            number = 3
+            re = 0
+            
+        }
+        else{
+            if display.text == ""{
+                display.text = ""
+            }else{
+                multiply = 1
+                let x = Double(display.text!)!
+                result = String(x)
+                display.text = ""
+                number = 3
+                re = 0
+            }
+        }
+    
     }
     
     
     @IBAction func divide(_ sender: Any) {
+        if divide == 1{
+            let a = Double(result)!
+            let b = Double(display.text!)!
+            let c = a / b
+            result = String(c)
+            display.text = ""
+            number = 4
+            re = 0
+            
+        }
+        else{
+            if display.text == ""{
+                display.text = ""
+            }else{
+                divide = 1
+                let x = Double(display.text!)!
+                result = String(x)
+                display.text = ""
+                number = 4
+                re = 0
+            }
+        }
     }
     
     
     @IBAction func point(_ sender: Any) {
+        
     }
     
     @IBAction func ac(_ sender: Any) {
        
-            display.text = " "
+            display.text = ""
+            add = 0
+            subtract = 0
+            multiply = 0
+            divide = 0
+        
         
     }
     
     @IBOutlet weak var display: UITextField!
     
    
+    @IBAction func show(_ sender: Any) {
+        let a = Double(result)!
+        let b = Double(display.text!)!
+        if number == 1
+        {
+            let c = a + b
+            display.text = String(c)
+        }
+        if number == 2
+        {
+            let c = a - b
+            display.text = String(c)
+        }
+        if number == 3
+        {
+            let c = a * b
+            display.text = String(c)
+        }
+        if number == 4
+        {
+            let c = a / b
+            display.text = String(c)
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
