@@ -216,6 +216,10 @@ class ViewController: UIViewController {
     
     @IBAction func point(_ sender: Any) {
         
+       
+            display.text = display.text! + "."
+        
+        
     }
     
     @IBAction func ac(_ sender: Any) {
