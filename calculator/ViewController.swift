@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     var subtract = 0
     var multiply = 0
     var divide = 0
+    var judge = 0
     @IBAction func zero(_ sender: Any) {
         if re == 1{
             display.text = "0"
@@ -132,6 +133,7 @@ class ViewController: UIViewController {
                 re = 0
                 }
             }
+        judge = 0
         
     }
     
@@ -158,6 +160,7 @@ class ViewController: UIViewController {
                 re = 0
             }
         }
+        judge = 0
     }
     
     
@@ -184,7 +187,7 @@ class ViewController: UIViewController {
                 re = 0
             }
         }
-    
+    judge = 0
     }
     
     
@@ -211,16 +214,25 @@ class ViewController: UIViewController {
                 re = 0
             }
         }
+        judge = 0
     }
     
     
     @IBAction func point(_ sender: Any) {
         
-       
+        if judge == 1{
+            display.text = display.text!
+        }
+            
+        else{
             display.text = display.text! + "."
+           judge = 1
+            }
+        }
+    
+
         
-        
-    }
+    
     
     @IBAction func ac(_ sender: Any) {
        
@@ -229,6 +241,7 @@ class ViewController: UIViewController {
             subtract = 0
             multiply = 0
             divide = 0
+            judge = 0
         
         
     }
@@ -239,6 +252,7 @@ class ViewController: UIViewController {
     @IBAction func show(_ sender: Any) {
         let a = Double(result)!
         let b = Double(display.text!)!
+       
         if number == 1
         {
             let c = a + b
@@ -256,9 +270,13 @@ class ViewController: UIViewController {
         }
         if number == 4
         {
-            let c = a / b
+            
+            let c = (a * 1000000)/(b * 1000000)
             display.text = String(c)
         }
+       
+       
+        judge = 0
         
     }
     
