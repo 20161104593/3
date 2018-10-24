@@ -221,7 +221,7 @@ class ViewController: UIViewController {
     @IBAction func point(_ sender: Any) {
         
         if judge == 1{
-            display.text = display.text!
+            display.text = display.text
         }
             
         else{
@@ -230,8 +230,20 @@ class ViewController: UIViewController {
             }
         }
     
-
+    @IBAction func change(_ sender: Any) {
+        let count = Double(display.text!)!
+        let count2 = -count
+        display.text = String(count2)
+        re = 0
+    }
+    
         
+    @IBAction func precent(_ sender: Any) {
+        let count = Double(display.text!)!
+        let count2 = count * 0.01
+        display.text = String(count2)
+        re = 0
+    }
     
     
     @IBAction func ac(_ sender: Any) {
@@ -274,7 +286,10 @@ class ViewController: UIViewController {
             let c = (a * 1000000)/(b * 1000000)
             display.text = String(c)
         }
-       
+        add = 0
+        subtract = 0
+        multiply = 0
+        divide = 0
        
         judge = 0
         
