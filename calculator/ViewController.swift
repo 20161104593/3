@@ -18,12 +18,24 @@ class ViewController: UIViewController {
     var multiply = 0
     var divide = 0
     var judge = 0
+    
+    
+    func cotrl()
+    {
+        
+        //let count = display.text!.count
+        display.text?.remove(at:  5)
+    }
+    
+    
     @IBAction func zero(_ sender: Any) {
         if re == 1{
             display.text = "0"
+            re = 0
         }
         else{
             display.text = display.text! + "0"
+            
         }
         
     }
@@ -31,6 +43,7 @@ class ViewController: UIViewController {
     @IBAction func one(_ sender: Any) {
         if re == 1{
             display.text = "1"
+            re = 0
         }
         else{
             display.text = display.text! + "1"
@@ -40,6 +53,7 @@ class ViewController: UIViewController {
     @IBAction func two(_ sender: Any) {
         if re == 1{
             display.text = "2"
+            re = 0
         }
         else{
             display.text = display.text! + "2"
@@ -49,6 +63,7 @@ class ViewController: UIViewController {
     @IBAction func three(_ sender: Any) {
         if re == 1{
             display.text = "3"
+            re = 0
         }
         else{
             display.text = display.text! + "3"
@@ -58,6 +73,7 @@ class ViewController: UIViewController {
     @IBAction func four(_ sender: Any) {
         if re == 1{
             display.text = "4"
+            re = 0
         }
         else{
             display.text = display.text! + "4"
@@ -67,6 +83,7 @@ class ViewController: UIViewController {
     @IBAction func five(_ sender: Any) {
         if re == 1{
             display.text = "5"
+            re = 0
         }
         else{
             display.text = display.text! + "5"
@@ -76,6 +93,7 @@ class ViewController: UIViewController {
     @IBAction func six(_ sender: Any) {
         if re == 1{
             display.text = "6"
+            re = 0
         }
         else{
             display.text = display.text! + "6"
@@ -85,6 +103,7 @@ class ViewController: UIViewController {
     @IBAction func seven(_ sender: Any) {
         if re == 1{
             display.text = "7"
+            re = 0
         }
         else{
             display.text = display.text! + "7"
@@ -94,6 +113,7 @@ class ViewController: UIViewController {
     @IBAction func eught(_ sender: Any) {
         if re == 1{
             display.text = "8"
+            re = 0
         }
         else{
             display.text = display.text! + "8"
@@ -103,6 +123,7 @@ class ViewController: UIViewController {
     @IBAction func nine(_ sender: Any) {
         if re == 1{
             display.text = "9"
+            re = 0
         }
         else{
             display.text = display.text! + "9"
@@ -116,9 +137,9 @@ class ViewController: UIViewController {
             let b = Double(display.text!)!
             let c = a + b
             result = String(c)
-            display.text = ""
+            display.text = String(c)
             number = 1
-            re = 0
+            re = 1
             
         }
         else{
@@ -126,11 +147,10 @@ class ViewController: UIViewController {
                 display.text = ""
             }else{
                 add = 1
-               let x = Double(display.text!)!
-                result = String(x)
-                display.text = ""
+                result = display.text!
+                display.text = result
                 number = 1
-                re = 0
+                re = 1
                 }
             }
         judge = 0
@@ -143,9 +163,9 @@ class ViewController: UIViewController {
             let b = Double(display.text!)!
             let c = a - b
             result = String(c)
-            display.text = ""
+            display.text = String(c)
             number = 2
-            re = 0
+            re = 1
             
         }
         else{
@@ -153,11 +173,10 @@ class ViewController: UIViewController {
                 display.text = ""
             }else{
                 subtract = 1
-                let x = Double(display.text!)!
-                result = String(x)
-                display.text = ""
+                result = display.text!
+                display.text = result
                 number = 2
-                re = 0
+                re = 1
             }
         }
         judge = 0
@@ -170,9 +189,9 @@ class ViewController: UIViewController {
             let b = Double(display.text!)!
             let c = a * b
             result = String(c)
-            display.text = ""
+            display.text = result
             number = 3
-            re = 0
+            re = 1
             
         }
         else{
@@ -180,11 +199,10 @@ class ViewController: UIViewController {
                 display.text = ""
             }else{
                 multiply = 1
-                let x = Double(display.text!)!
-                result = String(x)
-                display.text = ""
+                result = display.text!
+                display.text = result
                 number = 3
-                re = 0
+                re = 1
             }
         }
     judge = 0
@@ -197,9 +215,9 @@ class ViewController: UIViewController {
             let b = Double(display.text!)!
             let c = a / b
             result = String(c)
-            display.text = ""
+            display.text = result
             number = 4
-            re = 0
+            re = 1
             
         }
         else{
@@ -207,11 +225,10 @@ class ViewController: UIViewController {
                 display.text = ""
             }else{
                 divide = 1
-                let x = Double(display.text!)!
-                result = String(x)
-                display.text = ""
+                result = display.text!
+                display.text = result
                 number = 4
-                re = 0
+                re = 1
             }
         }
         judge = 0
@@ -290,7 +307,7 @@ class ViewController: UIViewController {
         subtract = 0
         multiply = 0
         divide = 0
-       
+        re = 1
         judge = 0
         
     }
