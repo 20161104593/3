@@ -20,13 +20,6 @@ class ViewController: UIViewController {
     var judge = 0
     
     
-    func cotrl()
-    {
-        
-        //let count = display.text!.count
-        display.text?.remove(at:  5)
-    }
-    
     
     @IBAction func zero(_ sender: Any) {
         if re == 1{
@@ -243,7 +236,7 @@ class ViewController: UIViewController {
             
         else{
             display.text = display.text! + "."
-           judge = 1
+            judge = 1
             }
         }
     
@@ -251,6 +244,15 @@ class ViewController: UIViewController {
         let count = Double(display.text!)!
         let count2 = -count
         display.text = String(count2)
+        var clear:String = display.text!
+        while clear.last == "0"{
+            clear.removeLast()
+        }
+        while clear.last == "."{
+            clear.removeLast()
+        }
+        
+        display.text = clear
         re = 0
     }
     
@@ -259,6 +261,15 @@ class ViewController: UIViewController {
         let count = Double(display.text!)!
         let count2 = count * 0.01
         display.text = String(count2)
+        var clear:String = display.text!
+        while clear.last == "0"{
+            clear.removeLast()
+        }
+        while clear.last == "."{
+            clear.removeLast()
+        }
+        
+        display.text = clear
         re = 0
     }
     
@@ -281,28 +292,34 @@ class ViewController: UIViewController {
     @IBAction func show(_ sender: Any) {
         let a = Double(result)!
         let b = Double(display.text!)!
-       
+        var c = 0.0
         if number == 1
         {
-            let c = a + b
-            display.text = String(c)
+            c = a + b
         }
         if number == 2
         {
-            let c = a - b
-            display.text = String(c)
+            c = a - b
         }
         if number == 3
         {
-            let c = a * b
-            display.text = String(c)
+            c = a * b
         }
         if number == 4
         {
             
-            let c = (a * 1000000)/(b * 1000000)
-            display.text = String(c)
+            c = a/b
         }
+        display.text = String(c)
+        var clear:String = display.text!
+        while clear.last == "0"{
+            clear.removeLast()
+        }
+        while clear.last == "."{
+            clear.removeLast()
+        }
+        
+        display.text = clear
         add = 0
         subtract = 0
         multiply = 0
