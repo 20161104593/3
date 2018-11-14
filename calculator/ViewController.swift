@@ -130,7 +130,7 @@ class ViewController: UIViewController {
             let b = Double(display.text!)!
             let c = a + b
             result = String(c)
-            display.text = String(c)
+            display.text = result
             number = 1
             re = 1
             
@@ -156,7 +156,7 @@ class ViewController: UIViewController {
             let b = Double(display.text!)!
             let c = a - b
             result = String(c)
-            display.text = String(c)
+            display.text = result
             number = 2
             re = 1
             
@@ -166,7 +166,8 @@ class ViewController: UIViewController {
                 display.text = ""
             }else{
                 subtract = 1
-                result = display.text!
+                let x = Double(display.text!)!
+                result = String(x)
                 display.text = result
                 number = 2
                 re = 1
@@ -230,29 +231,35 @@ class ViewController: UIViewController {
     
     @IBAction func point(_ sender: Any) {
         
-        if judge == 1{
-            display.text = display.text
+        if re == 1{
+            display.text = "0."
+            re = 0
         }
-            
         else{
-            display.text = display.text! + "."
-            judge = 1
+            if judge == 1{
+                display.text = display.text
+            }
+                
+            else{
+                if display.text == ""{
+                    display.text = "0."
+                }
+                else{
+                    display.text = display.text! + "."
+                    judge = 1
+                }
+                
+            }
             }
         }
+        
+        
     
     @IBAction func change(_ sender: Any) {
         let count = Double(display.text!)!
         let count2 = -count
         display.text = String(count2)
-        var clear:String = display.text!
-        while clear.last == "0"{
-            clear.removeLast()
-        }
-        while clear.last == "."{
-            clear.removeLast()
-        }
         
-        display.text = clear
         re = 0
     }
     
@@ -261,15 +268,7 @@ class ViewController: UIViewController {
         let count = Double(display.text!)!
         let count2 = count * 0.01
         display.text = String(count2)
-        var clear:String = display.text!
-        while clear.last == "0"{
-            clear.removeLast()
-        }
-        while clear.last == "."{
-            clear.removeLast()
-        }
-        
-        display.text = clear
+       
         re = 0
     }
     
@@ -295,20 +294,20 @@ class ViewController: UIViewController {
         var c = 0.0
         if number == 1
         {
-            c = a + b
+            c = ((a*1000000) + (b*1000000))/1000000
         }
         if number == 2
         {
-            c = a - b
+            c = ((a*1000000) - (b*1000000))/1000000
         }
         if number == 3
         {
-            c = a * b
+            c = ((a*1000000) * (b*1000000))/1000000000000
         }
         if number == 4
         {
             
-            c = a/b
+            c = (a*10000000)/(b*10000000)
         }
         display.text = String(c)
         var clear:String = display.text!
