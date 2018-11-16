@@ -166,8 +166,7 @@ class ViewController: UIViewController {
                 display.text = ""
             }else{
                 subtract = 1
-                let x = Double(display.text!)!
-                result = String(x)
+                result = display.text!
                 display.text = result
                 number = 2
                 re = 1
@@ -234,6 +233,7 @@ class ViewController: UIViewController {
         if re == 1{
             display.text = "0."
             re = 0
+            judge = 1
         }
         else{
             if judge == 1{
@@ -243,6 +243,7 @@ class ViewController: UIViewController {
             else{
                 if display.text == ""{
                     display.text = "0."
+                    judge = 1
                 }
                 else{
                     display.text = display.text! + "."
@@ -268,7 +269,7 @@ class ViewController: UIViewController {
         let count = Double(display.text!)!
         let count2 = count * 0.01
         display.text = String(count2)
-       
+        
         re = 0
     }
     
@@ -289,42 +290,49 @@ class ViewController: UIViewController {
     
    
     @IBAction func show(_ sender: Any) {
-        let a = Double(result)!
-        let b = Double(display.text!)!
-        var c = 0.0
-        if number == 1
-        {
-            c = ((a*1000000) + (b*1000000))/1000000
+        if display.text == ""{
+            display.text = ""
         }
-        if number == 2
-        {
-            c = ((a*1000000) - (b*1000000))/1000000
-        }
-        if number == 3
-        {
-            c = ((a*1000000) * (b*1000000))/1000000000000
-        }
-        if number == 4
-        {
+        else{
             
-            c = (a*10000000)/(b*10000000)
-        }
-        display.text = String(c)
-        var clear:String = display.text!
-        while clear.last == "0"{
-            clear.removeLast()
-        }
-        while clear.last == "."{
-            clear.removeLast()
+            let a = Double(result)!
+            let b = Double(display.text!)!
+            var c = 0.0
+            if number == 1
+            {
+                c = ((a*1000000) + (b*1000000))/1000000
+            }
+            if number == 2
+            {
+                c = ((a*1000000) - (b*1000000))/1000000
+            }
+            if number == 3
+            {
+                c = ((a*1000000) * (b*1000000))/1000000000000
+            }
+            if number == 4
+            {
+                
+                c = (a*10000000)/(b*10000000)
+            }
+            display.text = String(c)
+            var clear:String = display.text!
+            while clear.last == "0"{
+                clear.removeLast()
+            }
+            while clear.last == "."{
+                clear.removeLast()
+            }
+            
+            display.text = clear
+            add = 0
+            subtract = 0
+            multiply = 0
+            divide = 0
+            re = 1
+            judge = 0
         }
         
-        display.text = clear
-        add = 0
-        subtract = 0
-        multiply = 0
-        divide = 0
-        re = 1
-        judge = 0
         
     }
     
