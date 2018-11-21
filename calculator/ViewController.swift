@@ -14,12 +14,9 @@ class ViewController: UIViewController {
     var re = 0
     var result = ""
     var add = 0
-    var subtract = 0
-    var multiply = 0
-    var divide = 0
     var judge = 0
     
-    
+    var m = 1
     
     @IBAction func zero(_ sender: Any) {
         if re == 1{
@@ -128,12 +125,37 @@ class ViewController: UIViewController {
         if add == 1{
             let a = Double(result)!
             let b = Double(display.text!)!
-            let c = a + b
+            var c = 0.0
+            if number == 1
+            {
+                c = ((a*1000000) + (b*1000000))/1000000
+            }
+            if number == 2
+            {
+                c = ((a*1000000) - (b*1000000))/1000000
+            }
+            if number == 3
+            {
+                c = ((a*1000000) * (b*1000000))/1000000000000
+            }
+            if number == 4
+            {
+                
+                c = (a*10000000)/(b*10000000)
+            }
             result = String(c)
             display.text = result
+            var clear:String = display.text!
+            while clear.last == "0"{
+                clear.removeLast()
+            }
+            while clear.last == "."{
+                clear.removeLast()
+            }
+            
+            display.text = clear
             number = 1
             re = 1
-            
         }
         else{
             if display.text == ""{
@@ -151,12 +173,38 @@ class ViewController: UIViewController {
     }
     
     @IBAction func subtract(_ sender: Any) {
-        if subtract == 1{
+        if add == 1{
             let a = Double(result)!
             let b = Double(display.text!)!
-            let c = a - b
+            var c = 0.0
+            if number == 1
+            {
+                c = ((a*1000000) + (b*1000000))/1000000
+            }
+            if number == 2
+            {
+                c = ((a*1000000) - (b*1000000))/1000000
+            }
+            if number == 3
+            {
+                c = ((a*1000000) * (b*1000000))/1000000000000
+            }
+            if number == 4
+            {
+                
+                c = (a*10000000)/(b*10000000)
+            }
             result = String(c)
             display.text = result
+            var clear:String = display.text!
+            while clear.last == "0"{
+                clear.removeLast()
+            }
+            while clear.last == "."{
+                clear.removeLast()
+            }
+            
+            display.text = clear
             number = 2
             re = 1
             
@@ -165,7 +213,7 @@ class ViewController: UIViewController {
             if display.text == ""{
                 display.text = ""
             }else{
-                subtract = 1
+                add = 1
                 result = display.text!
                 display.text = result
                 number = 2
@@ -177,12 +225,40 @@ class ViewController: UIViewController {
     
     
     @IBAction func multiply(_ sender: Any) {
-        if multiply == 1{
+        if add == 1{
             let a = Double(result)!
             let b = Double(display.text!)!
-            let c = a * b
+            var c = 0.0
+            if number == 1
+            {
+                c = ((a*1000000) + (b*1000000))/1000000
+            }
+            if number == 2
+            {
+                c = ((a*1000000) - (b*1000000))/1000000
+            }
+            if number == 3
+            {
+                c = ((a*1000000) * (b*1000000))/1000000000000
+            }
+            if number == 4
+            {
+                
+                c = (a*10000000)/(b*10000000)
+            }
+            
+            
             result = String(c)
             display.text = result
+            var clear:String = display.text!
+            while clear.last == "0"{
+                clear.removeLast()
+            }
+            while clear.last == "."{
+                clear.removeLast()
+            }
+            
+            display.text = clear
             number = 3
             re = 1
             
@@ -191,7 +267,7 @@ class ViewController: UIViewController {
             if display.text == ""{
                 display.text = ""
             }else{
-                multiply = 1
+                add = 1
                 result = display.text!
                 display.text = result
                 number = 3
@@ -203,12 +279,38 @@ class ViewController: UIViewController {
     
     
     @IBAction func divide(_ sender: Any) {
-        if divide == 1{
+        if add == 1{
             let a = Double(result)!
             let b = Double(display.text!)!
-            let c = a / b
+            var c = 0.0
+            if number == 1
+            {
+                c = ((a*1000000) + (b*1000000))/1000000
+            }
+            if number == 2
+            {
+                c = ((a*1000000) - (b*1000000))/1000000
+            }
+            if number == 3
+            {
+                c = ((a*1000000) * (b*1000000))/1000000000000
+            }
+            if number == 4
+            {
+                
+                c = (a*10000000)/(b*10000000)
+            }
             result = String(c)
             display.text = result
+            var clear:String = display.text!
+            while clear.last == "0"{
+                clear.removeLast()
+            }
+            while clear.last == "."{
+                clear.removeLast()
+            }
+            
+            display.text = clear
             number = 4
             re = 1
             
@@ -217,7 +319,7 @@ class ViewController: UIViewController {
             if display.text == ""{
                 display.text = ""
             }else{
-                divide = 1
+                add = 1
                 result = display.text!
                 display.text = result
                 number = 4
@@ -257,20 +359,32 @@ class ViewController: UIViewController {
         
     
     @IBAction func change(_ sender: Any) {
-        let count = Double(display.text!)!
-        let count2 = -count
-        display.text = String(count2)
+        if display.text == ""{
+            display.text = ""
+        }
+        else{
+            let count = Double(display.text!)!
+            let count2 = -count
+            display.text = String(count2)
+            
+            re = 0
+        }
         
-        re = 0
     }
     
         
     @IBAction func precent(_ sender: Any) {
-        let count = Double(display.text!)!
-        let count2 = count * 0.01
-        display.text = String(count2)
+        if display.text == ""{
+            display.text = ""
+        }
+        else{
+            let count = Double(display.text!)!
+            let count2 = count * 0.01
+            display.text = String(count2)
+            
+            re = 0
+        }
         
-        re = 0
     }
     
     
@@ -278,9 +392,6 @@ class ViewController: UIViewController {
        
             display.text = ""
             add = 0
-            subtract = 0
-            multiply = 0
-            divide = 0
             judge = 0
         
         
@@ -326,9 +437,6 @@ class ViewController: UIViewController {
             
             display.text = clear
             add = 0
-            subtract = 0
-            multiply = 0
-            divide = 0
             re = 1
             judge = 0
         }
