@@ -15,9 +15,7 @@ class ViewController: UIViewController {
     var result = ""
     var add = 0
     var judge = 0
-    
     var m = 1
-    
     @IBAction func zero(_ sender: Any) {
         if re == 1{
             display.text = "0"
@@ -366,7 +364,6 @@ class ViewController: UIViewController {
             let count = Double(display.text!)!
             let count2 = -count
             display.text = String(count2)
-            
             re = 0
         }
         
@@ -440,10 +437,7 @@ class ViewController: UIViewController {
             re = 1
             judge = 0
         }
-        
-        
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
